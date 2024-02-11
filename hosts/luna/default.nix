@@ -95,7 +95,7 @@
   users.users.danb = {
     isNormalUser = true;
     hashedPassword = "$y$j9T$9waBeNWPf/JqV4kt6n1az/$zHjX5ic/gTIJfSwMKLvByUKDKel00vhyObSl0219bS6";
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
   };
 
