@@ -3,6 +3,7 @@
   imports =
     [
       ./shell.nix
+      ./nixvim.nix
     ];
 
   home.username = "danb";
@@ -14,6 +15,7 @@
       cargo
       tree
       btop
+      nerdfonts
     ];
 
   programs.git = {
