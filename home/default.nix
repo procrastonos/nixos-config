@@ -24,6 +24,7 @@
       nerdfonts
       neovide
       swww
+      discord
     ];
 
   programs.git = {
