@@ -1,0 +1,17 @@
+width = 2560 
+height = 1440
+border-width = 4
+border-color = #9e02c9
+padding-left = 1126
+padding-top = 504
+result-spacing = 25
+num-results = 5
+font = monospace
+background-color = #000A
+selection-color = #9e02c9
+prompt-text = ""
+placeholder-text = "uwu :3"
+text-cursor = true
+text-cursor-style = underscore
+history = true
+auto-accept-single = true

@@ -36,7 +36,7 @@
 	      home-manager.useGlobalPkgs = true;
 	      home-manager.useUserPackages = true;
 	      home-manager.extraSpecialArgs = inputs;
-	      home-manager.users.danb = { ... }: {
+	      home-manager.users.luna = { ... }: {
 	        imports =
 		  [
 		    ./home

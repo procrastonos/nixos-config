@@ -4,18 +4,26 @@
     [
       ./shell.nix
       ./nixvim.nix
+      ./hyprland.nix
+      ./wezterm.nix
     ];
 
-  home.username = "danb";
+  home.username = "luna";
   home.homeDirectory = "/home/${config.home.username}";
 
   home.packages = with pkgs; [
       firefox
+      telegram-desktop
       gcc
       cargo
       tree
       btop
+      tofi
+      uwufetch
+      swaylock-effects
       nerdfonts
+      neovide
+      swww
     ];
 
   programs.git = {

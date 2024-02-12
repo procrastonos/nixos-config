@@ -48,9 +48,7 @@
 
   # Enable the X11 windowing system.
   services.xserver = {
-    enable = true;
-    desktopManager.gnome.enable = true;
-    displayManager.gdm.enable = true;
+    enable = false;
     # Configure keymap in X11
     xkb.layout = "de";
     xkb.variant = "neo";
@@ -92,7 +90,7 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.danb = {
+  users.users.luna = {
     isNormalUser = true;
     hashedPassword = "$y$j9T$9waBeNWPf/JqV4kt6n1az/$zHjX5ic/gTIJfSwMKLvByUKDKel00vhyObSl0219bS6";
     extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
