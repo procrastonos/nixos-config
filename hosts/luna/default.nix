@@ -76,8 +76,13 @@
   sound.enable = true;
   hardware.opengl.enable = true;
   hardware.pulseaudio.enable = false;
-  security.polkit.enable = true;
-  security.rtkit.enable = true;
+
+  security = {
+    polkit.enable = true;
+    rtkit.enable = true;
+    pam.services.swaylock = {}; 
+  };
+
   services.pipewire = {
     enable = true;
     alsa.enable = true;
