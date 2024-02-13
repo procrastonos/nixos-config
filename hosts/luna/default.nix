@@ -3,11 +3,11 @@
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
 { config, lib, pkgs, ... }:
-
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./gc.nix
     ];
 
   nix.settings.experimental-features =
@@ -76,8 +76,27 @@
 
   # Enable sound.
   sound.enable = true;
-  hardware.opengl.enable = true;
+
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
+
   hardware.pulseaudio.enable = false;
+
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+    settings = {
+      General = {
+        Enable = "Source,Sink,Media,Socket";
+	Experimental = true;
+      };
+    };
+  };
+
+  services.blueman.enable = true;
 
   security = {
     polkit.enable = true;
@@ -119,7 +138,10 @@
     enable = true;
     enableSSHSupport = true;
   };
+  services.udev.packages = [ pkgs.yubikey-personalization ];
+  services.pcscd.enable = true;
 
+  programs.dconf.enable = true;
 
   # Activate zsh
   programs.zsh.enable = true;

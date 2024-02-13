@@ -11,7 +11,8 @@
   home.username = "luna";
   home.homeDirectory = "/home/${config.home.username}";
 
-  home.packages = with pkgs; [
+  home.packages = with pkgs;
+   [
       firefox
       telegram-desktop
       gcc
@@ -20,7 +21,9 @@
       btop
       tofi
       uwufetch
+      tty-clock
       swaylock-effects
+      sway-contrib.grimshot
       nerdfonts
       neovide
       swww
@@ -47,6 +50,28 @@
   };
 
   programs.home-manager.enable = true;
+
+  dconf.enable = true;
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Catppuccin-Mocha-Compact-Pink-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "pink" ];
+        size = "compact";
+        tweaks = [ "rimless" ];
+        variant = "mocha";
+      };
+    };
+  };
+
+  #home.sessionVariables.DEFAULT_BROWSER = "${pkgs.firefox}/bin/firefox";
 
   home.stateVersion = "23.11";
 }
