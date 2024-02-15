@@ -28,6 +28,7 @@
       neovide
       swww
       discord
+      inkscape
     ];
 
   programs.git = {

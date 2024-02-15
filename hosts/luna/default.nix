@@ -34,6 +34,18 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
+  services.avahi = {
+    enable = true;
+
+    nssmdns4 = true;
+    nssmdns6 = true;
+
+    ipv4 = true;
+    ipv6 = true;
+
+    openFirewall = true;
+  };
+
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
@@ -71,8 +83,13 @@
     gnome.yelp
   ]);
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  # Printing
+  services.printing = {
+    enable = true;
+    drivers = [ pkgs.gutenprint ];
+  };
+
+  hardware.sane.enable = true; # enables support for SANE scanners
 
   # Enable sound.
   sound.enable = true;
