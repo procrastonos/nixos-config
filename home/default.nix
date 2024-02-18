@@ -22,7 +22,6 @@
       tofi
       uwufetch
       tty-clock
-      swaylock-effects
       sway-contrib.grimshot
       nerdfonts
       neovide

@@ -118,7 +118,9 @@
   security = {
     polkit.enable = true;
     rtkit.enable = true;
-    pam.services.swaylock = {}; 
+    pam.services.swaylock = {
+      text = "auth include login";
+    };
   };
 
   services.pipewire = {

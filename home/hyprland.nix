@@ -96,7 +96,7 @@
           "$mainMod SHIFT, U, exec, systemctl suspend; swaylock -k -F --image ~/.wallpapers/hyprland_default.png"
           "$mainMod SHIFT, Q, killactive,"
           "$mainMod SHIFT, X, exit,"
-          "$mainMod, L, exec, swaylock --indicator --clock --effect-blur 16x16 -e -f -i ~/.wallpapers/hyprland_default.png"
+          "$mainMod, L, exec, swaylock --indicator --clock -e -f -i ~/.wallpapers/hyprland_default.png"
           "$mainMod SHIFT, SPACE, togglefloating,"
           "$mainMod, Backspace, exec, tofi-drun --drun-launch=true"
           "$mainMod SHIFT, Backspace, exec, tofi, # dwindle"
@@ -145,10 +145,52 @@
 
       bindm =
         [
-        "$mainMod, mouse:272, movewindow"
+	  "$mainMod, mouse:272, movewindow"
           "$mainMod, mouse:273, resizewindow"
         ];
     };    
+  };
+
+  programs.swaylock = {
+    enable = true;
+    settings = {
+      daemonize = true;
+      ignore-empty-password = true;
+      image = "~/.wallpapers/hyprland_default.png";
+      font = "Monoid Nerd Font Bold";
+      font-size = "120";
+      bs-hl-color = "ffffff00";
+      caps-lock-bs-hl-color = "ffffff00";
+      caps-lock-key-hl-color = "ffffff00";
+      inside-color = "ffffff20";
+      inside-clear-color = "ffffff80";
+      inside-caps-lock-color = "ffffff20";
+      inside-ver-color = "ffffff20";
+      inside-wrong-color = "ffffff20";
+      indicator-radius = "250";
+      indicator-thickness = "3";
+      key-hl-color = "d500baee";
+      layout-bg-color = "ffffff20";
+      layout-border-color = "ffffff20";
+      layout-text-color = "00000080";
+      line-color = "ffffff20";
+      line-clear-color = "ffffff80";
+      line-caps-lock-color = "ffffff00";
+      line-ver-color = "ffffff20";
+      line-wrong-color = "ff000080";
+      ring-color = "ffffff20";
+      ring-clear-color = "ffffff80";
+      ring-caps-lock-color = "ffffff00";
+      ring-ver-color = "ffffff20";
+      ring-wrong-color = "ff202080";
+      #separator-color = "d500baee";
+      separator-color = "ffffff20";
+      text-color = "000000A0";
+      text-clear-color = "000000A0";
+      text-caps-lock-color = "000000A0";
+      text-ver-color = "000000A0";
+      text-wrong-color = "00000080";
+    };
   };
 }
 
