@@ -93,10 +93,10 @@
       bind =
         [
           "$mainMod SHIFT, return, exec, wezterm"
-          "$mainMod SHIFT, U, exec, systemctl suspend; swaylock -k -F --image ~/.wallpapers/hyprland_default.png"
+          "$mainMod SHIFT, U, exec, systemctl suspend; swaylock"
           "$mainMod SHIFT, Q, killactive,"
           "$mainMod SHIFT, X, exit,"
-          "$mainMod, L, exec, swaylock --indicator --clock -e -f -i ~/.wallpapers/hyprland_default.png"
+          "$mainMod, L, exec, swaylock"
           "$mainMod SHIFT, SPACE, togglefloating,"
           "$mainMod, Backspace, exec, tofi-drun --drun-launch=true"
           "$mainMod SHIFT, Backspace, exec, tofi, # dwindle"
@@ -156,7 +156,7 @@
     settings = {
       daemonize = true;
       ignore-empty-password = true;
-      image = "~/.wallpapers/hyprland_default.png";
+      image = "~/.wallpapers/hyprland_default_blurred.png";
       font = "Monoid Nerd Font Bold";
       font-size = "120";
       bs-hl-color = "ffffff00";
