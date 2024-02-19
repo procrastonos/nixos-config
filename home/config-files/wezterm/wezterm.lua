@@ -9,7 +9,7 @@ end
 
 config.color_scheme = "Catppuccin Mocha"
 config.font = wezterm.font 'Hack Nerd Font Mono'
-if getHostname() == "lilith" then
+if getHostname() == "luna" then
 	config.font_size = 15
 else
 	config.font_size = 11
