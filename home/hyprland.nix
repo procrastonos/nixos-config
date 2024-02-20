@@ -159,8 +159,8 @@
       daemonize = true;
       ignore-empty-password = true;
       image = "~/.wallpapers/hyprland_default_blurred.png";
-      font = "Monoid Nerd Font Bold";
-      font-size = "120";
+      font = "Monoid Nerd Font";
+      font-size = "60";
       bs-hl-color = "ffffff00";
       caps-lock-bs-hl-color = "ffffff00";
       caps-lock-key-hl-color = "ffffff00";
