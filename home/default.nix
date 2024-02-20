@@ -26,6 +26,7 @@
       nerdfonts
       neovide
       swww
+      brightnessctl
       discord
       inkscape
     ];

@@ -106,13 +106,9 @@
           "$mainMod SHIFT, I, exec, grimshot copy area"
           "$mainMod, N, exec, neovide"
           "$mainMod, Z, exec, zathura"
-          ",XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"
-          ",XF86AudioLowerVolume, exec, zsh -c \"pactl set-sink-volume @DEFAULT_SINK@ 5%-\""
-          ",XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
+	  ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
           ",XF86MonBrightnessUp, exec, brightnessctl s +5%"
           ",XF86MonBrightnessDown, exec, brightnessctl s 5%-"
-          ",XF86Search, exec, brightnessctl --device='kbd_backlight' set +5%"
-          ",XF86LaunchA, exec, brightnessctl --device='kbd_backlight' set 5%-"
           # Move focus with mainMod + arrow keys
           "$mainMod, left, movefocus, l"
           "$mainMod, right, movefocus, r"
@@ -144,6 +140,12 @@
           "$mainMod, mouse_down, workspace, e+1"
           "$mainMod, mouse_up, workspace, e-1"
         ];
+
+      binde =
+        [
+	  ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
+	  ",XF86AudioLowerVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
+	];
 
       bindm =
         [
