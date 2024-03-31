@@ -241,6 +241,6 @@
         };
       };
     };
-    style = builtins.readFile ../config-files/waybar-mocha.css;
+    style = builtins.readFile ./config-files/waybar-mocha.css;
   };
 }
