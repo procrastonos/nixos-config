@@ -23,6 +23,7 @@
     nixpkgs,
     home-manager,
     nixvim,
+    nixos-hardware,
     ...
   }@inputs: {
     nixosConfigurations = {
@@ -31,6 +32,7 @@
         system = "x86_64-linux";
 	modules =
 	  [
+	    nixos-hardware.nixosModules.lenovo-thinkpad-t420
 	    ./hosts/donella
 	    home-manager.nixosModules.home-manager {
 	      home-manager.useGlobalPkgs = true;
