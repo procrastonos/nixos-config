@@ -26,17 +26,17 @@
     ...
   }@inputs: {
     nixosConfigurations = {
-      luna = nixpkgs.lib.nixosSystem {
+      donella = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         system = "x86_64-linux";
 	modules =
 	  [
-	    ./hosts/luna
+	    ./hosts/donella
 	    home-manager.nixosModules.home-manager {
 	      home-manager.useGlobalPkgs = true;
 	      home-manager.useUserPackages = true;
 	      home-manager.extraSpecialArgs = inputs;
-	      home-manager.users.luna = { ... }: {
+	      home-manager.users.seth = { ... }: {
 	        imports =
 		  [
 		    ./home

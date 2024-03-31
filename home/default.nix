@@ -8,7 +8,7 @@
       ./wezterm.nix
     ];
 
-  home.username = "luna";
+  home.username = "seth";
   home.homeDirectory = "/home/${config.home.username}";
 
   home.packages = with pkgs;
@@ -29,12 +29,13 @@
       brightnessctl
       discord
       inkscape
+      ranger
     ];
 
   programs.git = {
     enable = true;
-    userName = "misterdanb";
-    userEmail = "danb@ha.si";
+    userName = "procrastonos";
+    userEmail = "";
 
     aliases = {
       alias = "!git config --get-regexp alias | sed 's/alias\\.\\([^ ]*\\) /\\1 := /'";
