@@ -29,6 +29,7 @@
       brightnessctl
       inkscape
       ranger
+      emanote
     ];
 
   programs.git = {
