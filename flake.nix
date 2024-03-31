@@ -4,14 +4,11 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,8 +19,8 @@
     self,
     nixpkgs,
     home-manager,
-    nixvim,
     nixos-hardware,
+    nixvim,
     ...
   }@inputs: {
     nixosConfigurations = {
