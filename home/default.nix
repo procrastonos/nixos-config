@@ -27,7 +27,6 @@
       neovide
       swww
       brightnessctl
-      discord
       inkscape
       ranger
     ];
