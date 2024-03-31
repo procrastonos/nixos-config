@@ -1,35 +1,38 @@
-{ config, pkgs, inputs, lib, ... }:
 {
-  imports =
-    [
-      ./shell.nix
-      ./nixvim.nix
-      ./hyprland.nix
-      ./wezterm.nix
-    ];
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
+}: {
+  imports = [
+    ./shell.nix
+    ./nixvim.nix
+    ./hyprland.nix
+    ./wezterm.nix
+  ];
 
   home.username = "seth";
   home.homeDirectory = "/home/${config.home.username}";
 
-  home.packages = with pkgs;
-   [
-      firefox
-      telegram-desktop
-      gcc
-      cargo
-      tree
-      btop
-      tofi
-      uwufetch
-      tty-clock
-      sway-contrib.grimshot
-      nerdfonts
-      neovide
-      swww
-      brightnessctl
-      inkscape
-      ranger
-    ];
+  home.packages = with pkgs; [
+    firefox
+    telegram-desktop
+    gcc
+    cargo
+    tree
+    btop
+    tofi
+    uwufetch
+    tty-clock
+    sway-contrib.grimshot
+    nerdfonts
+    neovide
+    swww
+    brightnessctl
+    inkscape
+    ranger
+  ];
 
   programs.git = {
     enable = true;
@@ -64,9 +67,9 @@
     theme = {
       name = "Catppuccin-Mocha-Compact-Pink-Dark";
       package = pkgs.catppuccin-gtk.override {
-        accents = [ "pink" ];
+        accents = ["pink"];
         size = "compact";
-        tweaks = [ "rimless" ];
+        tweaks = ["rimless"];
         variant = "mocha";
       };
     };

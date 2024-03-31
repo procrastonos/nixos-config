@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
@@ -14,10 +17,9 @@
     '';
     prezto = {
       enable = true;
-      pmodules =
-        [
-          "completion"
-        ];
+      pmodules = [
+        "completion"
+      ];
     };
     shellAliases = {
       ls = "eza --icons --group-directories-first";
@@ -29,4 +31,3 @@
     };
   };
 }
-

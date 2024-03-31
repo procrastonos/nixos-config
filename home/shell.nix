@@ -1,9 +1,11 @@
-{ config, pkgs, ... }:
 {
-  imports =
-    [
-      ./zsh.nix
-    ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    ./zsh.nix
+  ];
 
   # Shell
   programs.bash.enable = true;
@@ -33,4 +35,3 @@
   programs.bat.enable = true;
   programs.eza.enable = true;
 }
-

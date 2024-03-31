@@ -1,16 +1,18 @@
-{ config, lib, pkgs, ... }:
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./gc.nix
-    ];
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  imports = [
+    ./hardware-configuration.nix
+    ./gc.nix
+  ];
 
-  nix.settings.experimental-features =
-    [
-      "nix-command"
-      "flakes"
-    ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   nixpkgs.config.allowUnfree = true;
 
@@ -51,7 +53,7 @@
     xkb.variant = "neo";
   };
 
-  environment.gnome.excludePackages = (with pkgs; [
+  environment.gnome.excludePackages = with pkgs; [
     gnome.totem
     gnome.cheese
     gnome.geary
@@ -63,12 +65,12 @@
     gnome.gnome-music
     gnome-tour
     gnome.yelp
-  ]);
+  ];
 
   # Printing
   services.printing = {
     enable = true;
-    drivers = [ pkgs.gutenprint ];
+    drivers = [pkgs.gutenprint];
   };
 
   hardware.sane.enable = true; # enables support for SANE scanners
@@ -90,7 +92,7 @@
     settings = {
       General = {
         Enable = "Source,Sink,Media,Socket";
-	Experimental = true;
+        Experimental = true;
       };
     };
   };
@@ -116,7 +118,7 @@
   users.users.seth = {
     isNormalUser = true;
     hashedPassword = "$y$j9T$/o1MlksTqpnA4W8zU.WG1.$hTegfAIQQqHyzJ0EW.GpwiIcBOEPZhpwaSa92uocFf6";
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = ["wheel" "networkmanager"];
     shell = pkgs.zsh;
   };
 
@@ -130,7 +132,7 @@
     enable = true;
     enableSSHSupport = true;
   };
-  services.udev.packages = [ pkgs.yubikey-personalization ];
+  services.udev.packages = [pkgs.yubikey-personalization];
   services.pcscd.enable = true;
 
   programs.dconf.enable = true;
@@ -171,6 +173,4 @@
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "23.11"; # Did you read the comment?
-
 }
-

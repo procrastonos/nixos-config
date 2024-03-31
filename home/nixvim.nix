@@ -1,17 +1,22 @@
-{ config, pkgs, inputs, lib, ... }:
 {
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
+}: {
   programs.nixvim = {
     enable = true;
     globals.mapleader = " ";
-    extraConfigLua = builtins.readFile ./config-files/nvim/init.lua; 
-    
+    extraConfigLua = builtins.readFile ./config-files/nvim/init.lua;
+
     clipboard.providers.wl-copy.enable = true;
     colorschemes.catppuccin.enable = true;
 
     options = {
-      number = true;         # Show line numbers
+      number = true; # Show line numbers
       relativenumber = true; # Show relative line numbers
-      shiftwidth = 2;        # Tab width should be 2
+      shiftwidth = 2; # Tab width should be 2
     };
 
     plugins = {
@@ -32,7 +37,7 @@
       bufferline.enable = true;
 
       telescope.extensions = {
-        file_browser.enable = true; 
+        file_browser.enable = true;
       };
 
       alpha = {
@@ -78,15 +83,14 @@
       nvim-cmp = {
         enable = true;
         autoEnableSources = true;
-        sources =
-          [
-            {name = "nvim_lsp";}
-            {name = "path";}
-            {name = "buffer";}
-            {name = "luasnip";}
-          ];
+        sources = [
+          {name = "nvim_lsp";}
+          {name = "path";}
+          {name = "buffer";}
+          {name = "luasnip";}
+        ];
 
-        snippet.expand = "luasnip"; 
+        snippet.expand = "luasnip";
 
         mapping = {
           "<CR>" = "cmp.mapping.confirm({ select = true })";
@@ -105,71 +109,70 @@
                 end
               end
             '';
-            modes = [ "i" "s" ];
+            modes = ["i" "s"];
           };
         };
       };
     };
 
-    keymaps =
-      [
-        {
-          mode = "n";
-          key = "<leader>ff";
-          options.silent = true;
-          action = "<cmd>Telescope file_browser<CR>";
-        }
-        {
-          mode = "n";
-          key = "<leader>bb";
-          options.silent = true;
-          action = "<cmd>Telescope buffers<CR>";
-        }
-        {
-          mode = "n";
-          key = "<leader>Gp";
-          action = "<cmd>Git pull<CR>";
-        }
-        {
-          mode = "n";
-          key = "<leader>GP";
-          action = "<cmd>Git push<CR>";
-        }
-        {
-          mode = "n";
-          key = "<leader>Gc";
-          action = "<cmd>Git commit<CR>";
-        }
-        {
-          mode = "n";
-          key = "<leader>Ga";
-          action = "<cmd>Git add .<CR>";
-        }
-        {
-          mode = "n";
-          key = "<leader>Gd";
-          action = "<cmd>Git diff<CR>";
-        }
-        {
-          mode = "n";
-          key = "<leader>nt";
-          action = "<cmd>Neotree toggle left<CR>";
-        }
-        {
-          mode = "n";
-          key = "<leader>P";
-          action = "\"+p";
-        }
-        {
-          mode = [ "n" "v" ];
-          key = "<leader>y";
-          action = "[[\"+y]]";
-        }
-        {
-          mode = [ "n" ];
-          key = "<leader>Y";
-          action = "[[\"+Y]]";
-        }
-      ];
+    keymaps = [
+      {
+        mode = "n";
+        key = "<leader>ff";
+        options.silent = true;
+        action = "<cmd>Telescope file_browser<CR>";
+      }
+      {
+        mode = "n";
+        key = "<leader>bb";
+        options.silent = true;
+        action = "<cmd>Telescope buffers<CR>";
+      }
+      {
+        mode = "n";
+        key = "<leader>Gp";
+        action = "<cmd>Git pull<CR>";
+      }
+      {
+        mode = "n";
+        key = "<leader>GP";
+        action = "<cmd>Git push<CR>";
+      }
+      {
+        mode = "n";
+        key = "<leader>Gc";
+        action = "<cmd>Git commit<CR>";
+      }
+      {
+        mode = "n";
+        key = "<leader>Ga";
+        action = "<cmd>Git add .<CR>";
+      }
+      {
+        mode = "n";
+        key = "<leader>Gd";
+        action = "<cmd>Git diff<CR>";
+      }
+      {
+        mode = "n";
+        key = "<leader>nt";
+        action = "<cmd>Neotree toggle left<CR>";
+      }
+      {
+        mode = "n";
+        key = "<leader>P";
+        action = "\"+p";
+      }
+      {
+        mode = ["n" "v"];
+        key = "<leader>y";
+        action = "[[\"+y]]";
+      }
+      {
+        mode = ["n"];
+        key = "<leader>Y";
+        action = "[[\"+Y]]";
+      }
+    ];
   };
 }

@@ -22,28 +22,27 @@
     nixos-hardware,
     nixvim,
     ...
-  }@inputs: {
+  } @ inputs: {
     nixosConfigurations = {
       donella = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+        specialArgs = {inherit inputs;};
         system = "x86_64-linux";
-	modules =
-	  [
-	    nixos-hardware.nixosModules.lenovo-thinkpad-t420
-	    ./hosts/donella
-	    home-manager.nixosModules.home-manager {
-	      home-manager.useGlobalPkgs = true;
-	      home-manager.useUserPackages = true;
-	      home-manager.extraSpecialArgs = inputs;
-	      home-manager.users.seth = { ... }: {
-	        imports =
-		  [
-		    ./home
-		    nixvim.homeManagerModules.nixvim
-		  ];
-	      };
-	    }
-	  ];
+        modules = [
+          nixos-hardware.nixosModules.lenovo-thinkpad-t420
+          ./hosts/donella
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = inputs;
+            home-manager.users.seth = {...}: {
+              imports = [
+                ./home
+                nixvim.homeManagerModules.nixvim
+              ];
+            };
+          }
+        ];
       };
     };
 

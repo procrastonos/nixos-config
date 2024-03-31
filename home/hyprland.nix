@@ -1,5 +1,10 @@
-{ config, pkgs, inputs, lib, ... }:
 {
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
+}: {
   #programs.waybar = {
   #};
 
@@ -66,15 +71,14 @@
         enabled = "yes";
         bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
 
-        animation =
-          [
-            "windows, 1, 7, myBezier"
-            "windowsOut, 1, 7, default, popin 80%"
-            "border, 1, 10, default"
-            "borderangle, 1, 8, default"
-            "fade, 1, 7, default"
-            "workspaces, 1, 6, default"
-          ];
+        animation = [
+          "windows, 1, 7, myBezier"
+          "windowsOut, 1, 7, default, popin 80%"
+          "border, 1, 10, default"
+          "borderangle, 1, 8, default"
+          "fade, 1, 7, default"
+          "workspaces, 1, 6, default"
+        ];
       };
 
       dwindle = {
@@ -87,72 +91,68 @@
         workspace_swipe_invert = "true";
       };
 
-      windowrule =
-        [
-          "float, ^(wezterm)$"
-        ];
+      windowrule = [
+        "float, ^(wezterm)$"
+      ];
 
-      bind =
-        [
-          "$mainMod SHIFT, return, exec, wezterm"
-          "$mainMod SHIFT, U, exec, systemctl suspend; swaylock"
-          "$mainMod SHIFT, Q, killactive,"
-          "$mainMod SHIFT, X, exit,"
-          "$mainMod, L, exec, swaylock"
-          "$mainMod SHIFT, SPACE, togglefloating,"
-          "$mainMod, Backspace, exec, tofi-drun --drun-launch=true"
-          "$mainMod SHIFT, Backspace, exec, tofi, # dwindle"
-          "$mainMod, J, togglesplit, # dwindle"
-          "$mainMod SHIFT, I, exec, grimshot copy area"
-          "$mainMod, N, exec, neovide"
-          "$mainMod, Z, exec, zathura"
-	  ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-          ",XF86MonBrightnessUp, exec, brightnessctl s +5%"
-          ",XF86MonBrightnessDown, exec, brightnessctl s 5%-"
-          # Move focus with mainMod + arrow keys
-          "$mainMod, left, movefocus, l"
-          "$mainMod, right, movefocus, r"
-          "$mainMod, up, movefocus, u"
-          "$mainMod, down, movefocus, d"
-          # Switch workspaces with mainMod + [0-9]
-          "$mainMod, 1, workspace, 1"
-          "$mainMod, 2, workspace, 2"
-          "$mainMod, 3, workspace, 3"
-          "$mainMod, 4, workspace, 4"
-          "$mainMod, 5, workspace, 5"
-          "$mainMod, 6, workspace, 6"
-          "$mainMod, 7, workspace, 7"
-          "$mainMod, 8, workspace, 8"
-          "$mainMod, 9, workspace, 9"
-          "$mainMod, 0, workspace, 10"
-          # Move active window to a workspace with mainMod + SHIFT + [0-9]
-          "$mainMod SHIFT, 1, movetoworkspace, 1"
-          "$mainMod SHIFT, 2, movetoworkspace, 2"
-          "$mainMod SHIFT, 3, movetoworkspace, 3"
-          "$mainMod SHIFT, 4, movetoworkspace, 4"
-          "$mainMod SHIFT, 5, movetoworkspace, 5"
-          "$mainMod SHIFT, 6, movetoworkspace, 6"
-          "$mainMod SHIFT, 7, movetoworkspace, 7"
-          "$mainMod SHIFT, 8, movetoworkspace, 8"
-          "$mainMod SHIFT, 9, movetoworkspace, 9"
-          "$mainMod SHIFT, 0, movetoworkspace, 10"
-          # Scroll through existing workspaces with mainMod + scroll
-          "$mainMod, mouse_down, workspace, e+1"
-          "$mainMod, mouse_up, workspace, e-1"
-        ];
+      bind = [
+        "$mainMod SHIFT, return, exec, wezterm"
+        "$mainMod SHIFT, U, exec, systemctl suspend; swaylock"
+        "$mainMod SHIFT, Q, killactive,"
+        "$mainMod SHIFT, X, exit,"
+        "$mainMod, L, exec, swaylock"
+        "$mainMod SHIFT, SPACE, togglefloating,"
+        "$mainMod, Backspace, exec, tofi-drun --drun-launch=true"
+        "$mainMod SHIFT, Backspace, exec, tofi, # dwindle"
+        "$mainMod, J, togglesplit, # dwindle"
+        "$mainMod SHIFT, I, exec, grimshot copy area"
+        "$mainMod, N, exec, neovide"
+        "$mainMod, Z, exec, zathura"
+        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ",XF86MonBrightnessUp, exec, brightnessctl s +5%"
+        ",XF86MonBrightnessDown, exec, brightnessctl s 5%-"
+        # Move focus with mainMod + arrow keys
+        "$mainMod, left, movefocus, l"
+        "$mainMod, right, movefocus, r"
+        "$mainMod, up, movefocus, u"
+        "$mainMod, down, movefocus, d"
+        # Switch workspaces with mainMod + [0-9]
+        "$mainMod, 1, workspace, 1"
+        "$mainMod, 2, workspace, 2"
+        "$mainMod, 3, workspace, 3"
+        "$mainMod, 4, workspace, 4"
+        "$mainMod, 5, workspace, 5"
+        "$mainMod, 6, workspace, 6"
+        "$mainMod, 7, workspace, 7"
+        "$mainMod, 8, workspace, 8"
+        "$mainMod, 9, workspace, 9"
+        "$mainMod, 0, workspace, 10"
+        # Move active window to a workspace with mainMod + SHIFT + [0-9]
+        "$mainMod SHIFT, 1, movetoworkspace, 1"
+        "$mainMod SHIFT, 2, movetoworkspace, 2"
+        "$mainMod SHIFT, 3, movetoworkspace, 3"
+        "$mainMod SHIFT, 4, movetoworkspace, 4"
+        "$mainMod SHIFT, 5, movetoworkspace, 5"
+        "$mainMod SHIFT, 6, movetoworkspace, 6"
+        "$mainMod SHIFT, 7, movetoworkspace, 7"
+        "$mainMod SHIFT, 8, movetoworkspace, 8"
+        "$mainMod SHIFT, 9, movetoworkspace, 9"
+        "$mainMod SHIFT, 0, movetoworkspace, 10"
+        # Scroll through existing workspaces with mainMod + scroll
+        "$mainMod, mouse_down, workspace, e+1"
+        "$mainMod, mouse_up, workspace, e-1"
+      ];
 
-      binde =
-        [
-	  ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
-	  ",XF86AudioLowerVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
-	];
+      binde = [
+        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
+        ",XF86AudioLowerVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
+      ];
 
-      bindm =
-        [
-	  "$mainMod, mouse:272, movewindow"
-          "$mainMod, mouse:273, resizewindow"
-        ];
-    };    
+      bindm = [
+        "$mainMod, mouse:272, movewindow"
+        "$mainMod, mouse:273, resizewindow"
+      ];
+    };
   };
 
   programs.swaylock = {
@@ -197,4 +197,3 @@
     };
   };
 }
-
