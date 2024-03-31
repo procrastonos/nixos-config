@@ -199,4 +199,48 @@
       text-wrong-color = "00000080";
     };
   };
+
+  programs.waybar = {
+    enable = true;
+    settings = {
+      mainBar = {
+        layer = "top";
+        position = "top";
+        height = 30;
+        modules-left = ["hyprland/workspaces"];
+        #modules-center = [ "hyprland/window" ];
+        modules-right = ["tray" "network" "battery" "battery#bat2" "clock"];
+        "tray" = {"icon-size" = 21;};
+        "network" = {
+          "format-wifi" = "NET: {essid} ({signalStrength}%) ";
+          "format-ethernet" = "{ifname} ";
+          "format-disconnected" = "";
+          "max-length" = 50;
+        };
+        "battery" = {
+          "bat" = "BAT0";
+          "interval" = 10;
+          "states" = {
+            "warning" = 30;
+            "critical" = 15;
+          };
+          "format" = " BAT IN: {capacity}%";
+          #"format-icons" = ''["", "", "", "", ""]'';
+          "max-length" = 25;
+        };
+        "battery#bat2" = {
+          "bat" = "BAT1";
+          "interval" = 10;
+          "states" = {
+            "warning" = 30;
+            "critical" = 15;
+          };
+          "format" = " BAT EX: {capacity}%";
+          #"format-icons" = ''["", "", "", "", ""]'';
+          "max-length" = 25;
+        };
+      };
+    };
+    style = builtins.readFile ../config-files/waybar-mocha.css;
+  };
 }
