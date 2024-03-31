@@ -96,18 +96,21 @@
       ];
 
       bind = [
+        # Launch stuff
+        "$mainMod, Backspace, exec, tofi-drun --drun-launch=true"
         "$mainMod SHIFT, return, exec, wezterm"
+	# Lock
+        "$mainMod, L, exec, swaylock"
         "$mainMod SHIFT, U, exec, systemctl suspend; swaylock"
+	# Kill, exit
         "$mainMod SHIFT, Q, killactive,"
         "$mainMod SHIFT, X, exit,"
-        "$mainMod, L, exec, swaylock"
+	# Tiling
         "$mainMod SHIFT, SPACE, togglefloating,"
-        "$mainMod, Backspace, exec, tofi-drun --drun-launch=true"
-        "$mainMod SHIFT, Backspace, exec, tofi, # dwindle"
         "$mainMod, J, togglesplit, # dwindle"
         "$mainMod SHIFT, I, exec, grimshot copy area"
         "$mainMod, N, exec, neovide"
-        "$mainMod, Z, exec, zathura"
+	# Brightness, audio
         ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ",XF86MonBrightnessUp, exec, brightnessctl s +5%"
         ",XF86MonBrightnessDown, exec, brightnessctl s 5%-"
